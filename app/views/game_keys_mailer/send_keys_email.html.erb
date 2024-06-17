@@ -1,0 +1,49 @@
+<!-- app/views/game_keys_mailer/send_keys_email.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Your Game Keys for <%= @game_name %></title>
+  <style>
+      /* Add your CSS styles here */
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+      }
+      .container {
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+          color: #333;
+      }
+      p {
+          color: #666;
+      }
+      .keys-list {
+          list-style-type: none;
+          padding: 0;
+      }
+      .keys-list li {
+          margin-bottom: 10px;
+      }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Your Game Keys for <%= @game_name %></h1>
+  <p>Hello,</p>
+  <p>Here are your game keys for <%= @game_name %>:</p>
+  <ul class="keys-list">
+    <% @keys.each do |key| %>
+      <li><%= key %></li>
+    <% end %>
+  </ul>
+  <p>Thank you for your purchase!</p>
+</div>
+</body>
+</html>

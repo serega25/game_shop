@@ -1,0 +1,45 @@
+<div class="col-md-8 game-details">
+
+  <div class="row">
+    <div class="col-md-4 game-cover">
+      <%= image_tag(@game.cover_image(350, 350), class: "img-fluid rounded") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2><%= @game.name %></h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong>Genre:</strong> <%= @game.genre %></p>
+      <p><strong>Developer:</strong> <%= @game.developer %></p>
+      <p><strong>Distributor:</strong> <%= @game.distributor %></p>
+      <p><strong>Platforms:</strong> <%= @game.platforms %></p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Description:</strong> <%= @game.description %></p>
+      <p><strong>Price:</strong> <%= @game.price_for_one %>$</p>
+      <p><strong>Amount available:</strong> <%= @game.remaining_keys %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Game Pictures</h3>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="game-pictures">
+        <% @game.pictures_thumbnails(350, 350).each do |picture| %>
+          <%= image_tag(picture, class: "img-fluid rounded mr-2 mb-2") %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

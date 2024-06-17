@@ -1,0 +1,27 @@
+<div id="<%= dom_id game %>">
+  <div class="row">
+    <div class="col-md-4 game-cover">
+      <%= link_to game_path(game) do %>
+        <%= image_tag(game.cover_image(350, 350), class: "img-fluid rounded") %>
+      <% end %>
+    </div>
+  </div>
+  <h4 class="mt-2"><%= game.name %></h4>
+  <p>Genres:
+    <% game.genres.each do |genre| %>
+      <%= link_to genre.name, genre %>
+      <% unless genre == game.genres.last %>,
+      <% end %>
+    <% end %>
+  </p>
+
+  <% if game.remaining_keys > 0 %>
+    <%= form_with(url: cart_add_path) do |f| %>
+      <%= f.hidden_field :id, value: game.id %>
+      <%= f.hidden_field :quantity, value: 1 %>
+      <%= f.submit "Add to Cart" %>
+    <% end %>
+  <% else %>
+    Out of Stock
+  <% end %>
+</div>

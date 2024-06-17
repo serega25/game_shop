@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <% @games.each do |game| %>
+      <div class="col-md-4 text-center">
+        <%= render partial: "games/game", locals: { game: game } %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="pagination">
+        <%= paginate @games %>
+      </div>
+    </div>
+  </div>
+</div>

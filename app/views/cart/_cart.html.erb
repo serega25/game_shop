@@ -1,0 +1,33 @@
+<%= turbo_frame_tag "cart" do %>
+  <% if flash[:error].present? %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="alert alert-danger" role="alert">
+            <%= flash[:error] %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title">Cart</h1>
+            <% if @cart.orderables.count > 0 %>
+              <%= render "cart/orderable" %>
+              <p class="card-text"><b>Total:</b> <%= @cart.total %></p>
+            <% else %>
+              <p class="card-text">Your cart is empty</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+

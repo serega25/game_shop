@@ -1,0 +1,6 @@
+<%= turbo_frame_tag 'cart-link' do %>
+  <%= link_to cart_path, data: { turbo: false }, class: 'nav-link position-relative' do %>
+    <i class="fa-solid fa-cart-shopping fa-xl"></i>
+    <span class="badge badge-danger position-absolute top-0 start-100 translate-middle"><%= @cart.orderables.count %></span>
+  <% end %>
+<% end %>

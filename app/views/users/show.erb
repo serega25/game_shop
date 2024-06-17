@@ -1,0 +1,98 @@
+<h1 class="text-center my-4">Profile Page</h1>
+
+<div class="container">
+  <% if current_user == @user %>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Settings <i class="fa-solid fa-gear"></i></h3>
+            <div class="avatar-form">
+              <%= form_for(@user, url: { action: :update_avatar, id: @user.id }, method: :patch, html: { class: 'form' }) do |f| %>
+                <div class="form-group">
+                  <%= f.label :avatar %> <i class="fa-solid fa-camera"></i>
+                  <%= f.file_field :avatar, class: "form-control-file" %>
+                </div>
+                <div class="form-group">
+                  <%= f.submit 'Save', class: 'btn btn-primary', data: { turbo: false } %>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="password-form">
+              <%= form_for(@user, url: { action: :update_password }, method: :patch) do |f| %>
+
+                <div class="field password-field">
+                  <%= f.label :current_password %>
+                  <%= f.password_field :current_password, :autocomplete => "current-password", :placeholder => "Current Password", :required => true %>
+                </div>
+
+                <div class="field password-field">
+                  <%= f.label :password %>
+                  <%= f.password_field :password, :autocomplete => "new-password", :placeholder => "New Password", :required => true %>
+                </div>
+
+                <div class="field password-field">
+                  <%= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation, :autocomplete => "new-password", :placeholder => "Confirm Password", :required => true %>
+                </div>
+
+                <div class="actions">
+                  <%= f.submit 'Change Password', id: 'save-button-password', data: { turbo: false } %>
+                </div>
+              <% end %>
+
+            </div>
+
+            <div class="user-info-form">
+              <%= form_for(@user, url: user_path(@user), method: :patch) do |f| %>
+                <div class="field">
+                  <%= f.label :email %>
+                  <%= f.email_field :email %>
+                </div>
+
+                <div class="actions">
+                  <%= f.submit 'Save', id: 'save-button-user', data: { turbo: false } %>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="profile-form">
+              <%= form_for(@user.profile, url: { action: :update_profile }, method: :patch) do |f| %>
+                <%= hidden_field_tag :id, @user.profile.id, id: "password_update_id" %>
+
+                <div class="field">
+                  <%= f.label :nickname %>
+                  <%= f.text_field :nickname, value: @user.profile.nickname %>
+                </div>
+
+                <div class="field">
+                  <%= f.label :full_name %>
+                  <%= f.text_field :full_name, value: @user.profile.full_name %>
+                </div>
+
+                <div class="actions">
+                  <%= f.submit 'Save', id: 'save-button-patient', data: { turbo: false } %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+
+  <div class="col-md-4 text-center">
+    <%= image_tag(@user.avatar_image(350, 350), class: "img-fluid rounded-circle mb-3") %>
+    <div class="profile-info">
+      <h2><i class="fa-solid fa-envelope"></i> Email: <%= @user.email %></h2>
+      <h2 class="h4">Nickname: <%= @user.profile.nickname %></h2>
+      <p class="lead">FullName: <%= @user.profile.full_name %></p>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+
+
+

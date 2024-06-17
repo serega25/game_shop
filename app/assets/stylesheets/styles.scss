@@ -1,0 +1,108 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  padding-top: 60px;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: #ffffff;
+    text-decoration: none;
+  }
+}
+
+.center-form{
+  display: flex;
+  justify-content: center;
+}
+
+.checkout-button {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.cart-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cart-update{
+  form {
+    display: flex;
+    flex-direction: row;
+
+    .btn{
+      width: 50%;
+    }
+  }
+
+ // max-width: 10%;
+}
+
+.cart-delete{
+ // max-width: 10%;
+}
+
+.game-row{
+  margin-top: 10px;
+}
+
+.nav-link .badge {
+  font-size: 1rem; /* Adjust font size */
+  padding: 0.25em 0.4em; /* Adjust padding */
+  transform: translate(-50%, -50%); /* Center the badge */
+}
+
+.nav, .navbar-nav, .navbar-right{
+  display: flex;
+  align-items: center;
+}
+
+.profile-info{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#cart-link{
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.password-form{
+  display: flex;
+  flex-direction: column;
+
+  .password-field {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.avatar-form, .password-form, .user-info-form, .profile-form {
+  margin-top: 10px;
+}
+
+.divider{
+  margin-bottom: 10px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+}
+
+.logout-li{
+  display: flex;
+  justify-content: center;
+}

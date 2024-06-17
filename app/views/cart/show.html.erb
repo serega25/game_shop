@@ -1,0 +1,6 @@
+<div>
+ <%= render partial: "cart" %>
+  <div class="checkout-button">
+    <%= button_to 'Checkout', create_order_path, method: :post, class: 'btn btn-primary', data: { turbo: false } %>
+  </div>
+</div>
